@@ -10,9 +10,10 @@ const Stickies = () => {
     e.stopPropagation()
     e.preventDefault()
   }
-  const drag = (e) => {
+  const drag = (e, id) => {
     e.target.style.left = `${e.pageX - 50}px`
     e.target.style.top = `${e.pageY - 50}px`
+    noteContext.noteDispatch({type: "CURRENT_NOTE", payload: id})
   }
 
   {/*Storing all notes in the local storage*/}
@@ -38,7 +39,7 @@ const Stickies = () => {
               transform: `rotate(${note.rotate}deg)`,
             }}
             draggable= "true"
-            onDragEnd= {drag}
+            onDragEnd= {(e) => drag(e, note.id)}
             key={note.id}
             >
             <pre className="text">{note.text}</pre>

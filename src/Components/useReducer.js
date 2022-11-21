@@ -6,8 +6,9 @@ export const NoteContext = React.createContext()//  A context is created
 const initialState = {
     lastNote: null,
     total: 0,
-    notes: []
-  }
+    notes: [],
+    currentNote: null,
+}
   
   {/*This is the reducer function*/}
 const reducer = (state, action) => {
@@ -20,8 +21,13 @@ const reducer = (state, action) => {
         case "DELETE_NOTE_SUCCESS":
             return{
                 ...state, 
-                total: state.notes.length -1,
+                total: state.notes.length - 1,
                 notes: state.notes.filter(note => note.id !== action.payload.id)
+            }
+        case "CURRENT_NOTE":
+            return{
+                ...state,
+                currentNote: action.payload
             }
         default:
             return state

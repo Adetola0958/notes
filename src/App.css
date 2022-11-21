@@ -38,7 +38,7 @@ body{
   color: #fff;
 }
 .created-note{
-  background-image: url("./Images//1654825.jpg");
+  background-image: url("./Images/stickers.png");
   cursor: pointer;
   background-size: cover;
   position: absolute;
@@ -50,8 +50,8 @@ body{
 }
 .text{
   font-family: Arial, Helvetica, sans-serif;
-  overflow-y: wrap;
-  overflow-x: wrap;
+  overflow-y: scroll;
+  overflow-x: scroll;
   white-space: pre-wrap;
   height: 100%;
   width: 100%;

@@ -20,10 +20,10 @@ const Form = () => {
         setTextNote("")
     }
 
-    const deleteNote = (e, id)=> {
-        e.preventDefault()
-        noteContext.noteDispatch({type: "DELETE_NOTE_SUCCESS", payload: null})
-    }
+    // const deleteNote = (e, id)=> {
+    //     e.preventDefault()
+    //     noteContext.noteDispatch({type: "DELETE_NOTE_SUCCESS", payload: id})
+    // }
     
   return (
     <div className='space'>
@@ -37,14 +37,9 @@ const Form = () => {
             <button>Add a note</button>
         </form>
         {
-        noteContext.noteState.notes.map(note => (
-          <div
-            onDragExit={(id) => deleteNote(id)} 
-            key={note.id}
-            >
-            <h1 key={note.id}>Trash</h1>
+          <div>
+            <h1 onMouseEnter={() => noteContext.noteDispatch({type: "DELETE_NOTE_SUCCESS", payload:{id: noteContext.noteState.currentNote}})}>Trash</h1>
           </div>
-        ))
       }
     </div>
   )
