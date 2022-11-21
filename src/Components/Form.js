@@ -40,7 +40,7 @@ const Form = () => {
           <div>
             <h1 onMouseEnter={() => noteContext.noteDispatch({type: "DELETE_NOTE_SUCCESS", payload:{id: noteContext.noteState.currentNote}})}>Trash</h1>
           </div>
-      }
+        }
     </div>
   )
 }
